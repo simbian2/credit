@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "../credit.css">
+</head>
+<body>
+    <h3 class = "margin_delet">결제 전입니다</h3>
+    <div class = "calculate displaynone">{{calculate}}</div>
+</body>
+<script type = "text/javascript">
+    //javascript
+        function openWindowPop(url, name){
+            var options = 'top=100, left=650, width=1000, height=300, status=no, menubar=no, toolbar=no, resizable=no';
+            window.open(url, name, options);
+            close();
+        }
+
+        let calculate = document.querySelector('.calculate')
+        let margin_delet = document.querySelector('.margin_delet')
+        let moveBtn = document.querySelector('.moveBtn')
+        let value = calculate.innerHTML
+      
+        if(value<0){
+            alert('잔액이 부족합니다')  
+            margin_delet.innerHTML = "결제에 실패 하셨습니다"
+            moveBtn.style.display = 'none'
+        }else if(value >= 0){
+            alert('결제에 성공하셨습니다')  
+            margin_delet.innerHTML = "결제 완료 되셨습니다"
+            moveBtn.style.display = 'block'
+        }
+
+        
+    </script>
+</html>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "../credit.css">
+</head>
+<body>
+    <div class = "wrappingwrap wrap">
+        <div class = "w800">
+            <form action = "/credit_json" method = "post">
+                <div class = "border1">
+                    <div class = "bottom">
+                        <span class = "bold">구매자 : </span>
+                        <span class = "ProductName">{{name}}</span>
+                    </div>
+                    <div>
+                        <span class = "bold">상품금액 : </span>
+                        <span>{{price}}</span>
+                    </div>
+                    <div>
+                        <input class = "displaynone" type = "text" name = "price" value = "{{price}}">
+                        <input class = "displaynone" type = "text" name = "name" value = "{{name}}">
+                    </div>
+                </div>
+                <div class = "top">
+                    <h5>신용카드 정보</h5>
+                    <div class = "top">
+                        <div class = "d1">결제구분</div>
+                        <div>
+                            <input type = "radio">국내카드<br/>
+                            <input type = "radio">해외카드(Visa/Master.JCB.Diners)
+                        </div>
+                    </div>
+                    <div class = "top">
+                        <div class = "d1">카드번호</div>
+                        <div>
+                            <input type = "text" name = "creditnumber">
+                        </div>
+                        <div class = "msg">{{msg}}</div>
+                    </div>
+                    <div class = "top">
+                        <div class = "d1">유효기간</div>
+                        <div>
+                            <input type = "text" name = "creditEndDate">
+                        </div>
+                    </div>
+                    <div class = "top">
+                        <div class = "d1">비밀번호</div>
+                        <div>
+                            <input type = "text" class = "move" name = "creditPw">XX(앞 2자리)
+                        </div>
+                    </div>
+                    <div class = "top">
+                        <div class = "d1">생년월일(사업자번호)</div>
+                        <div>
+                            <input type = "text" class = "move" name = "creditBirth">* 생년월일 6자리/사업자번호 10자리
+                        </div>
+                    </div>
+                    <div class = "top">
+                        <div class = "d1">할부기간</div>
+                        <div>
+                            <select name = "pay_method">
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                            </select>
+                            개월
+                        </div>
+                    </div>
+                </div>
+                <div class = "line"></div>
+                <div class = "check3">
+                    <input class = "margin-right" type = "checkbox">전자금융 이용약관
+                    <input class = "margin-right" type = "checkbox">전자금융 이용약관
+                    <input class = "margin-right" type = "checkbox">전자금융 이용약관
+                    <input class = "margin-right" type = "checkbox">전자금융 이용약관
+                </div>
+                <div class = "line"></div>
+                <div>* 결제하고자하는 내용을 충분히 확인후, 동의하시면 결제버튼을 눌러주십시오.</div>
+                <div class = "BTN2">
+                    <div><input type = "submit" button = "취소"></div>
+                    <div><a href="javascript:openWindowPop('http://localhost:5000/', 'popup');"><input type = "submit" value = "결제"></a></div>
+                </div>           
+            </form>
+        </div>
+    </div>
+</body>
+<script type = "text/javascript">
+    //javascript
+
+
+
+        let msg = document.querySelector('.msg')
+        let value = msg.innerHTML
+        if(value == "'카드번호를 확인해주세요'"){
+            alert('카드번호를 확인해주세요')
+            value = '카드번호를 확인해주세요 '
+        }
+    </script>
+</html>
